@@ -2,9 +2,8 @@ let express = require('express');
 let app = express();
 let port = process.env.PORT || 6969;
 let bodyParser = require('body-parser');
-// var cors = require('cors')
-// let knex = require('./knex');
 
+//route files
 let recipe = require('./routes/recipe');
 
 app.use(function(req, res, next) {
@@ -22,6 +21,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
+//routes
 app.use('/recipe', recipe)
 
 app.listen(port, function(){
