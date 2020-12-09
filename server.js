@@ -5,6 +5,7 @@ let bodyParser = require('body-parser');
 
 //route files
 let recipe = require('./routes/recipe');
+let category = require('./routes/category')
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -23,6 +24,7 @@ app.use(bodyParser.json())
 
 //routes
 app.use('/recipe', recipe)
+app.use('/category', category)
 
 app.listen(port, function(){
     console.log(`listening on port ${port} bitch`)

@@ -22,8 +22,16 @@ const createRecipe = (req, res, next)  => {
     })
 }
 
+function getByCategory(req, res, next) {
+    model.getByCategory(req.params.category_id)
+    .then(data => {
+        res.json(data)
+    })
+}
+
 module.exports = {
     getAll,
     getOne,
-    createRecipe
+    createRecipe,
+    getByCategory
 }

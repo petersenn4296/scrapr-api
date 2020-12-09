@@ -1,6 +1,7 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('recipe', function(table) {
         table.increments('id');
+        table.integer('category_id').unsigned().index().references('id').inTable('category').onDelete('CASCADE');
         table.string('url', 1000).defaultTo('');
         table.string('name').defaultTo('');
         table.specificType('ingredients', 'varchar(100000) ARRAY');
