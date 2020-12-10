@@ -8,6 +8,8 @@ function getAll(req, res, next) {
 }
 
 function createCategory(req, res, next) {
+    console.log('createCategory', req, res);
+    console.log('createCategory');
     model.createCategory(req.body.name)
     .then(data => {
         res.json(data)
